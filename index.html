@@ -70,6 +70,12 @@
       </div>
     </div>
   </div>
+
+  <!-- Part Two Section-->
+  <section class="movie-container">
+
+  </section>
+
   <script src="https://unpkg.com/jquery"></script>
   <script>
     // 1
@@ -82,7 +88,7 @@
     $("#title").css("font-size", Math.floor(Math.random() * 100));
 
     // 4
-      $("ol").append("<li>Whatever you want.</li>");
+    $("ol").append("<li>Whatever you want.</li>");
 
     // 5
     $("aside").empty()
@@ -104,9 +110,36 @@
       $(evt.target).remove();
     });
 
+  // Part Two: Movies App!
+  // created form
+  $(".movie-container").append($("<form>").addClass("movie-form"));
+  // two inputs title and rating w/ submit button
+  $(".movie-form").append($("<input>").addClass("title-input"));
+  $(".movie-form").append($("<input>").addClass("rating-input"));
+  $(".movie-form").append($("<button>")
+    .addClass("submit-button")
+    .text("Submit"));
+  
+  // add e.preventDefault()
+  $(".submit-button").on('click', (evt) => {
+    evt.preventDefault();
 
+    const movieInput = $(".title-input").val();
+    const ratingInput = $(".rating-input").val();
 
-  // Add your code here!
+    $(".movie-list").append(`<li>${movieInput} ${ratingInput} 
+    <button class="delete-button">Delete</button></li>`)
+  })
+
+$(".title-input").attr('placeholder', "Movie title");
+$(".rating-input").attr('placeholder', "Rating");
+$(".movie-container").append("<ol>").addClass("movie-list");
+
+// Delete list
+$(".movie-container").on('click', ".delete-button", (evt) => {
+  $(evt.target).closest('li').remove();
+})
+
   </script>
 </body>
 
