@@ -74,6 +74,27 @@
 </div>
 <script src="https://unpkg.com/jquery"></script>
 <script>
+  $("article img").addClass("image-center");
+  $("article p:last-child").remove();
+  $("#title").css("font-size", Math.floor(Math.random() * 100));
+  $("<li>").text("Whatever you want.").insertAfter("li");
+  $("aside").add("<p>").text("I am so so so so so so sorry");
+
+    //let red = $(".form-control").val()
+    //console.log(red);
+
+    $(".form-control").on("change", () => {
+      let red = $(".form-control").eq(0).val()
+      let blue = $(".form-control").eq(1).val()
+      let green = $(".form-control").eq(2).val()
+    console.log(red, blue);
+    // $("body")
+    // .css("background-color")
+  })
+
+
+
+
   // Add your code here!
 </script>
 </body>
